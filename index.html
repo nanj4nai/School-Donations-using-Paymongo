@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>School Donation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Modal background */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-8 py-4 bg-white shadow sticky top-0 z-50">
+        <div class="logo font-bold text-lg">SchoolName</div>
+        <div class="links space-x-6">
+            <a href="#" class="hover:text-blue-600">Home</a>
+            <a href="#about" class="hover:text-blue-600">About</a>
+            <a href="#" class="hover:text-blue-600">Programs</a>
+            <a href="#" class="hover:text-blue-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="text-white text-center py-28 px-6 bg-cover bg-center"
+        style="background-image: url('https://images.unsplash.com/photo-1601597111158-58f6cdb1335e'); background-color: rgba(0,0,0,0.55); background-blend-mode: multiply;">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Ignite Change. Invest in Education!</h1>
+        <p class="max-w-2xl mx-auto text-lg mb-6">Your donation helps provide resources, opportunities, and hope for
+            students. Together we can build a brighter future.</p>
+        <button id="donateBtn"
+            class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-medium text-lg shadow">
+            <i class="fas fa-hand-holding-heart"></i> Donate Now
+        </button>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="py-16 px-8 text-center">
+        <h2 class="text-3xl font-bold mb-6">About Our School</h2>
+        <p class="max-w-2xl mx-auto text-gray-600 leading-relaxed">
+            Our mission is to empower students through quality education, building a foundation of knowledge,
+            confidence, and opportunity.
+            With your support, we continue to provide scholarships, resources, and community-driven programs that uplift
+            lives.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-6">
+        <p>© 2025 SchoolName. All rights reserved.</p>
+    </footer>
+
+    <!-- Donation Modal -->
+    <div id="donationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div
+            class="bg-white shadow-lg rounded-2xl flex flex-col md:flex-row max-w-5xl w-full mx-4 overflow-hidden relative animate-fadeIn">
+
+            <!-- Close button -->
+            <button id="closeModal"
+                class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+
+            <!-- Left side (campaign info) -->
+            <div class="md:w-1/2 flex flex-col bg-gray-50">
+                <img src="https://tesda.gov.ph/Uploads/Image/News/2022/43/1.jpg" alt="School Campaign"
+                    class="w-full h-64 md:h-full object-cover">
+
+                <div class="p-8 flex-1 flex flex-col justify-center">
+                    <h1 class="text-2xl font-bold mb-4">Ignite Change. Invest in Education!</h1>
+                    <p class="text-gray-700 mb-4">
+                        Our school is building a brighter future for children through education.
+                        Your donation directly supports our mission to provide quality learning opportunities.
+                    </p>
+                    <p class="text-gray-700">
+                        Together, we can empower students, uplift communities, and inspire lasting change.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right side (donation form) -->
+            <div class="md:w-1/2 flex flex-col p-8 justify-between border-l">
+                <div class="flex-1 flex flex-col justify-center">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center gap-2 text-gray-700 justify-center">
+                        <i class="fas fa-lock text-green-600"></i> Secure Donation
+                    </h2>
+
+                    <form method="POST" action="create_checkout.php" id="donation-form" class="flex flex-col gap-4">
+                        <!-- Preset Amounts -->
+                        <div class="flex flex-col gap-3">
+                            <label
+                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
+                                <input type="radio" name="amount_choice" value="100" class="hidden peer" checked>
+                                <span class="font-bold peer-checked:text-blue-600">₱100</span>
+                                <span class="text-sm text-gray-500">Support supplies</span>
+                            </label>
+
+                            <label
+                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
+                                <input type="radio" name="amount_choice" value="500" class="hidden peer">
+                                <span class="font-bold peer-checked:text-blue-600">₱500</span>
+                                <span class="text-sm text-gray-500">Sponsor a student</span>
+                            </label>
+
+                            <label
+                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
+                                <input type="radio" name="amount_choice" value="1000" class="hidden peer">
+                                <span class="font-bold peer-checked:text-blue-600">₱1000</span>
+                                <span class="text-sm text-gray-500">Fund activities</span>
+                            </label>
+
+                            <label
+                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
+                                <input type="radio" name="amount_choice" value="5000" class="hidden peer">
+                                <span class="font-bold peer-checked:text-blue-600">₱5000</span>
+                                <span class="text-sm text-gray-500">Major support</span>
+                            </label>
+
+                            <!-- Other amount -->
+                            <div>
+                                <input type="number" name="other_amount" placeholder="Other amount (₱)" min="50"
+                                    class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="mt-6">
+                    <button type="submit" form="donation-form"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium text-lg shadow">
+                        Donate Now
+                    </button>
+                    <p class="text-sm text-gray-500 text-center mt-3">
+                        <i class="fas fa-shield-alt"></i> Redirects to Secure Checkout
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Tailwind animation -->
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.2s ease-out;
+        }
+    </style>
+
+
+    <script>
+        const modal = document.getElementById("donationModal");
+        const donateBtn = document.getElementById("donateBtn");
+        const closeModal = document.getElementById("closeModal");
+
+        donateBtn.onclick = () => { modal.classList.remove("hidden"); };
+        closeModal.onclick = () => { modal.classList.add("hidden"); };
+        window.onclick = (e) => { if (e.target == modal) modal.classList.add("hidden"); };
+
+    </script>
+</body>
+
+</html>
