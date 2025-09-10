@@ -1,0 +1,870 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    color: #000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base reveal */
+.reveal {
+  opacity: 0;
+  transform: translateX(-80px); /* start from left */
+  transition: all 0.9s ease-out;
+}
+
+/* Active state */
+.reveal.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* For project cards (right to left) */
+.project-card {
+  opacity: 0;
+  transform: translateX(80px); /* start from right */
+  transition: all 0.8s ease-out;
+}
+
+.project-card.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Top bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 24px;
+    font-size: 14px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 300px;
+}
+
+.logo-section img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 13px;
+    flex-wrap: wrap;
+}
+
+.contact-group {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.contact-label {
+    display: block;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.contact-detail {
+    font-weight: 700;
+    color: #000;
+}
+
+.btn-enroll {
+    background: #375dc0;
+    border: none;
+    padding: 10px 18px;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enroll:hover {
+    background: #0439aa;
+}
+
+/* Navbar */
+/* Navbar sticky by default */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #4b8d5b;
+    border-bottom: 2px solid #3a7a4a;
+}
+
+/* Keep content inside centered */
+nav .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* Desktop menu */
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+
+nav>.nav-container>ul>li {
+    padding: 16px 20px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+nav>.nav-container>ul>li .active {
+    color: yellow;
+    font-weight: 800;
+}
+
+
+nav>.nav-container>ul>li:hover {
+    color: yellow;
+    background-color: #3a7a4a;
+}
+
+nav>.nav-container>ul>li>a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Dropdown */
+nav ul li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #3a7a4a;
+    padding: 8px 0;
+    display: none;
+    min-width: 150px;
+    z-index: 10;
+}
+
+nav ul li:hover>ul {
+    display: block;
+}
+
+nav ul li ul li {
+    padding: 8px 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+nav ul li ul li:hover {
+    background-color: #2a6337;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    margin: 10px;
+}
+
+.hamburger span {
+    height: 3px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        /* instead of sticky */
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(75, 141, 91, 0.95);
+        backdrop-filter: blur(6px);
+    }
+
+    body {
+        padding-top: 55px;
+        /* push content below fixed navbar */
+    }
+
+    nav .nav-container {
+        justify-content: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        background-color: rgba(75, 141, 91, 0.95);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav>.nav-container>ul>li {
+        padding: 12px 16px;
+        width: 100%;
+    }
+
+    nav ul li ul {
+        position: static;
+        padding-left: 16px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+
+
+/* Container for proper margins */
+.donation-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 12%;
+    /* proper left and right spacing */
+    gap: 40px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    /* ensure padding doesn't break layout */
+}
+
+.donation-left {
+    flex: 1;
+}
+
+.donation-left h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #1F3A93;
+}
+
+.donation-left p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.donation-right {
+    flex: 1;
+    text-align: right;
+}
+
+.donation-right img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.projects {
+    max-width: 1200px;
+    margin: 60px 10%;
+    padding: 0 20px;
+}
+
+.projects h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 15px;
+}
+
+.location {
+    display: inline-block;
+    background: #1F3A93;
+    /* greenish-blue, can match your branding */
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.project-info h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.project-info p {
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 6px;
+}
+
+.progress {
+    background: #28a745;
+    /* green progress */
+    height: 100%;
+}
+
+.donateBtn {
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #007B5E;
+    /* matches location tag */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
+    /* full width for stronger CTA */
+}
+
+.donate-btn:hover {
+    background: #005f46;
+}
+
+
+/* Responsive for Mobile */
+@media screen and (max-width: 1024px) {
+    .donation-section {
+        padding: 50px 10%;
+        /* slightly smaller margin */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .donation-right {
+        text-align: center;
+        margin-top: 25px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .donation-section {
+        padding: 40px 5%;
+        /* mobile-friendly margins */
+    }
+}
+
+/* Mobile styles */
+/* Mobile styles */
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+
+        /* Hide top bar */
+    }
+
+    nav {
+        position: fixed;
+        /* Navbar floats */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        /* On top of everything */
+        background-color: rgba(75, 141, 91, 0.9);
+        /* Semi-transparent green */
+        backdrop-filter: blur(6px);
+        /* Optional frosted effect */
+    }
+
+    /* Push page content down so it doesn't hide under navbar */
+    body {
+        padding-top: 50px;
+        /* Adjust to navbar height */
+    }
+
+    nav .nav-container {
+        justify-content: flex-start;
+
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        background-color: rgba(75, 141, 91, 0.95);
+
+        /* Slightly more opaque for menu */
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav>.nav-container>ul>li {
+        padding: 12px 16px;
+        width: 100%;
+
+    }
+
+    nav ul li ul {
+        position: static;
+        padding-left: 16px;
+
+    }
+
+    .hamburger {
+        display: flex;
+
+    }
+}
+
+
+/* Slideshow */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    /* FIX: ensure slideshow always has height */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ensure slides fill container */
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    /* match container height */
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.overlay h2 {
+    font-size: 1.5rem;
+}
+
+.overlay h1 {
+    font-size: 4rem;
+    /* bigger size */
+    font-weight: 900;
+    /* still the boldest widely supported */
+    line-height: 1.2;
+    /* tighter spacing for impact */
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    /* makes it appear wider */
+    text-transform: uppercase;
+    /* optional: makes it stand out more */
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-yellow {
+    background: #f7b500;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-outline {
+    border: 4px solid #f7b500;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-yellow:hover {
+    background: #d99a00;
+}
+
+.btn-outline:hover {
+    background: #f7b500;
+    color: black;
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Text Slide Down Animation */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation when slide becomes active */
+/* Hide overlay text by default */
+.overlay h2,
+.overlay h1,
+.overlay .buttons {
+    opacity: 0;
+    /* start invisible */
+    transform: translateY(-30px);
+    /* start slightly above */
+}
+
+/* When active, animate in */
+.slide.active .overlay h2 {
+    animation: slideDown 0.8s ease-out forwards;
+}
+
+.slide.active .overlay h1 {
+    animation: slideDown 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.slide.active .overlay .buttons {
+    animation: slideDown 1.2s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.2s ease-out;
+}
+
+.footer {
+  background: #006b3f; /* deep green like your screenshot */
+  color: #fff;
+  padding: 50px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col {
+  flex: 1 1 300px;
+  margin: 15px;
+}
+
+.footer-logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.footer h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #f2f2f2;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 16px;
+  color: #fff;
+  transition: 0.3s;
+}
+.social-links a:hover {
+  color: #ffcc00; /* yellow hover */
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #ffcc00; /* highlight like "Useful Links" in screenshot */
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.footer-col ul li a:hover {
+  color: #ffcc00;
+}
+
+.hours li {
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 0;
+}
+.hours li span:last-child {
+  font-weight: 500;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  /* Donation section */
+  .donation-section {
+    padding: 25px 5%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .donation-right {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Projects */
+  .projects {
+    margin: 30px 5%;
+    padding: 0;
+  }
+
+  /* Slideshow overlay */
+  .overlay {
+    padding: 10px;
+  }
+  .overlay h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  .overlay h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .overlay .buttons {
+    gap: 10px;
+  }
+  .overlay a {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  /* Donation section */
+  .donation-section {
+    padding: 25px 5%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .donation-right {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .slideshow {
+    margin-top: -10px;
+  }
+
+  /* Projects */
+  .projects {
+    margin: 30px 5%;
+    padding: 0;
+  }
+  .project-grid {
+    grid-template-columns: 1fr; /* one column on mobile */
+    gap: 20px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 30px 15px;
+  }
+  
+  
+}
+
+
+/* Mobile adjustments (modal) */
+@media screen and (max-width: 768px) {
+  #donationModal {
+    /* don't force display! keep hidden until JS toggles it */
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  #donationModal > div {
+    max-height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 120px; /* breathing room at the bottom */
+    position: relative;    /* content stays normal */
+  }
+
+  #donationModal #closeModal {
+    position: absolute;   /* attach inside modal card */
+    top: 10px;
+    right: 10px;
+    z-index: 1000;        /* higher than content inside */
+    background: white;
+    border-radius: 50%;
+    padding: 4px 10px;
+    cursor: pointer;
+
+    width: auto;
+    height: auto;
+    line-height: 1;
+    pointer-events: auto;
+  }
+
+  #donationModal img {
+    height: 160px;
+    object-fit: cover;
+  }
+
+  #donationModal .p-8 {
+    padding: 12px;
+  }
+
+  #donationModal h1 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  #donationModal p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  #donationModal h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  #donationModal button[type="submit"] {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
