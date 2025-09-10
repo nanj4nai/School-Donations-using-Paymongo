@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Endonela</title>
+
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="logo-section">
+            <img src="images/logo.jpg" alt="Endonela Logo">
+            <img src="images/tesda.jpg" alt="Tesda Logo">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b30eb273-ebe8-4be2-b92b-49190b5b6835.png"
+                alt="ISO Certificate" />
+
+        </div>
+
+        <div class="contact-links">
+            <div class="contact-group">
+                <span class="contact-label">Call Us</span>
+                <span class="contact-detail">+63 906 667 7680</span>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">Message Us</span>
+                <a href="#" class="contact-detail">Submit Inquiries</a>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">Global Certificate</span>
+                <span class="contact-detail">ISO 9001:2015</span>
+            </div>
+            <button class="btn-enroll">Portal</button>
+        </div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <!-- Hamburger Button -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Menu -->
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html" class="active">About Us</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li>Projects
+                    <ul>
+                        <li><a href="#">Admission Requirements</a></li>
+                        <li><a href="#">Registration Guidelines</a></li>
+                    </ul>
+                </li>
+                <li>News & Info
+                    <ul>
+                        <li><a href="#">Latest News</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </li>
+                <li>Services
+                    <ul>
+                        <li><a href="#">Student Services</a></li>
+                        <li><a href="#">Faculty Services</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- About Us Banner -->
+    <section class="relative bg-cover bg-center h-64" style="background-image: url('images/slideshow-3.jpg');">
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white">
+            <nav class="text-sm mb-2">
+                <a href="index.html" class="hover:underline">Home</a> &gt; <span>About Us</span>
+            </nav>
+            <h1 class="text-4xl font-semibold">About Us</h1>
+        </div>
+    </section>
+
+    <!-- About Us Content -->
+    <section class="max-w-5xl mx-auto px-6 py-12 text-gray-700 leading-relaxed">
+        <p class="mb-4">
+            To be added
+        </p>
+        <p class="mb-4">
+            
+        </p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Left: Logo & About -->
+            <div class="footer-col">
+                <img src="images/logo.jpg" alt="Endonela Logo" class="footer-logo">
+                <h3>Endonela Institute of Technology Foundation, Inc.</h3>
+                <p class="footer-tagline">"Start Here, Stay Here, Succeed Here"</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/eitfiendonela.davao?_rdc=1&_rdr#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Middle: Useful Links -->
+            <div class="footer-col">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">News & Info</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Right: Opening Hours -->
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="hours">
+                    <li><span>Monday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Tuesday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Wednesday - Thursday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Friday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Saturday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Sunday</span><span>Closed</span></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

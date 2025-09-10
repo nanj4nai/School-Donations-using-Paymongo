@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Endonela</title>
+
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="logo-section">
+            <img src="images/logo.jpg" alt="Endonela Logo">
+            <img src="images/tesda.jpg" alt="Tesda Logo">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b30eb273-ebe8-4be2-b92b-49190b5b6835.png"
+                alt="ISO Certificate" />
+
+        </div>
+
+        <div class="contact-links">
+            <div class="contact-group">
+                <span class="contact-label">Call Us</span>
+                <span class="contact-detail">+63 906 667 7680</span>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">Message Us</span>
+                <a href="#" class="contact-detail">Submit Inquiries</a>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">Global Certificate</span>
+                <span class="contact-detail">ISO 9001:2015</span>
+            </div>
+            <button class="btn-enroll">Portal</button>
+        </div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <!-- Hamburger Button -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Menu -->
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li>Projects
+                    <ul>
+                        <li><a href="#">Admission Requirements</a></li>
+                        <li><a href="#">Registration Guidelines</a></li>
+                    </ul>
+                </li>
+                <li>News & Info
+                    <ul>
+                        <li><a href="#">Latest News</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </li>
+                <li>Services
+                    <ul>
+                        <li><a href="#">Student Services</a></li>
+                        <li><a href="#">Faculty Services</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- About Us Banner -->
+    <section class="relative bg-cover bg-center h-64" style="background-image: url('images/slideshow-3.jpg');">
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white">
+            <nav class="text-sm mb-2">
+                <a href="index.html" class="hover:underline">Home</a> &gt; <span>Courses</span>
+            </nav>
+            <h1 class="text-4xl font-semibold">Courses</h1>
+        </div>
+    </section>
+
+    <!-- Hilot Wellness Massage -->
+    <section
+        class="max-w-6xl mx-auto px-6 py-16 text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+        <!-- Right Side Slideshow + Stacked Images -->
+        <div class="relative flex items-center h-full">
+            <div id="slideshow" class="relative w-full h-[400px] overflow-hidden rounded-2xl shadow-lg">
+
+                <!-- Slides -->
+                <div class="flex transition-transform duration-700 ease-in-out" id="slides">
+                    <!-- Image 1 -->
+                    <img src="images/hilot-1.jpg" alt="Donation Project"
+                        class="w-full h-full object-cover flex-shrink-0 hover:scale-105 hover:z-50 transition duration-500 rounded-2xl">
+                    <img src="images/hilot-2.jpg" alt="Donation Project"
+                        class="w-full h-full object-cover flex-shrink-0 hover:scale-105 hover:z-50 transition duration-500 rounded-2xl">
+                    <img src="images/hilot-3.jpg" alt="Donation Project"
+                        class="w-full h-full object-cover flex-shrink-0 hover:scale-105 hover:z-50 transition duration-500 rounded-2xl">
+                </div>
+
+                <!-- Controls -->
+                <button onclick="prevSlide()"
+                    class="absolute top-1/2 left-3 -translate-y-1/2 bg-white/70 p-2 rounded-full shadow hover:bg-white z-50">
+                    ‹
+                </button>
+                <button onclick="nextSlide()"
+                    class="absolute top-1/2 right-3 -translate-y-1/2 bg-white/70 p-2 rounded-full shadow hover:bg-white z-50">
+                    ›
+                </button>
+            </div>
+        </div>
+
+        <!-- Left Side Text -->
+        <div class="donation-left space-y-6">
+            <h2 class="text-3xl font-bold text-gray-900">Hilot Wellness Massage</h2>
+            <p>
+                Endonela Institute of Technology Foundation, Inc. also offers a Hilot Wellness Massage course,
+                providing individuals with the knowledge and hands-on training needed to become skilled wellness
+                practitioners.
+                With your support, we can continue to train and empower students to achieve professional success in the
+                field of health and wellness.
+            </p>
+            <p>
+                This achievement is not just a certificate — it’s a milestone that opens new opportunities in the
+                field of health and wellness. Each of you now carries the pride of becoming a certified
+                Hilot Wellness Massage practitioner.<br>
+            </p>
+
+            </p>
+        </div>
+    </section>
+
+    <!--Courses (SMAW)-->
+    <section
+        class="max-w-6xl mx-auto px-6 py-16 text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+        <!-- Left Side Text -->
+        <div class="donation-left space-y-6">
+            <h2 class="text-3xl font-bold text-gray-900">Shielded Metal Arc Welding (SMAW)</h2>
+            <p>
+                Endonela Institute of Technology Foundation, Inc. proudly offers a Shielded Metal Arc Welding (SMAW)
+                course,
+                giving the opportunity to develop technical skills and prepare for meaningful employment.
+                Your support helps us continue offering quality training that empowers individuals to build a better
+                future
+                for themselves and their communities.
+            </p>
+
+            <p>
+                Congratulations to all the SMAW NCII passers! We know how much dedication and effort it takes to achieve
+                this milestone.
+                Well done — you truly deserve the success! 🥳<br>
+            </p>
+        </div>
+
+        <!-- Right Side Slideshow + Stacked Images -->
+        <div class="relative flex items-center h-full">
+            <div id="slideshow" class="relative w-full h-[400px] overflow-hidden rounded-2xl shadow-lg">
+
+                <!-- Slides -->
+                <div class="flex transition-transform duration-700 ease-in-out" id="picture">
+                    <!-- Image 1 -->
+                    <img src="images/smaw-1.jpg" alt="SMAW Course"
+                        class="w-full h-full object-cover flex-shrink-0 hover:scale-105 hover:z-50 transition duration-500 rounded-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Driving -->
+    <section
+        class="max-w-6xl mx-auto px-6 py-16 text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+        <!-- Right Side Slideshow + Stacked Images -->
+        <div class="relative flex items-center h-full">
+            <div id="slideshow" class="relative w-full h-[400px] overflow-hidden rounded-2xl shadow-lg">
+
+                <!-- Slides -->
+                <div class="flex transition-transform duration-700 ease-in-out" id="slides1">
+                    <!-- Image 1 -->
+                    <img src="images/driving.jpg" alt="Donation Project"
+                        class="w-full h-full object-cover flex-shrink-0 hover:scale-105 hover:z-50 transition duration-500 rounded-2xl">
+                </div>
+            </div>
+        </div>
+
+        <!-- Left Side Text -->
+        <div class="donation-left space-y-6">
+            <h2 class="text-3xl font-bold text-gray-900">Driving Course</h2>
+            <p>
+                Endonela Institute of Technology Foundation, Inc. proudly offers a Driving NCII course,
+                equipping students with the proper training and skills needed to become licensed, safe,
+                and competent drivers. With continued support, we aim to prepare more individuals for
+                meaningful opportunities both on and off the road.
+            </p>
+            <p>
+                Congratulations to all DRIVING NCII passers this September 05, 2025!
+                Your hard work paid off. Keep driving forward, not just on the road, but in life.
+                This is just the beginning — stay safe, stay focused, and enjoy the journey ahead.
+                Your dedication and perseverance have paid off. This is a significant milestone,
+                and we can't wait to see where the road takes you.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!--Courses (SMAW)-->
+    <section
+        class="max-w-6xl mx-auto px-6 py-16 text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+        <!-- Left Side Text -->
+        <div class="donation-left space-y-6">
+            <h2 class="text-3xl font-bold text-gray-900">HEO Hydraulic Excavator</h2>
+            <p>
+                Endonela Institute of Technology Foundation, Inc. also offers a Heavy Equipment Operation
+                (Hydraulic Excavator) NCII course, giving students hands-on training and the technical skills
+                needed to operate safely and effectively. With this program, we continue to empower individuals
+                to pursue careers in construction and heavy equipment industries.
+            </p>
+            <p class="text-lg text-gray-800">
+                This achievement is not just about mastering the controls of a machine — it’s about discipline,
+                safety, and the responsibility of handling heavy equipment in real-world projects. Each of you
+                now carries the pride of being a certified HEO Hydraulic Excavator NCII passer.
+            </p>
+
+        </div>
+
+        <!-- Right Side Slideshow + Stacked Images -->
+        <div class="relative flex items-center h-full">
+            <div id="slideshow" class="relative w-full h-[400px] overflow-hidden rounded-2xl shadow-lg">
+
+                <!-- Slides -->
+                <div class="flex transition-transform duration-700 ease-in-out" id="picture">
+                    <!-- Image 1 -->
+                    <img src="images/Hydraulic-1.jpg" alt="SMAW Course"
+                        class="w-full h-full object-cover flex-shrink-0 hover:scale-105 hover:z-50 transition duration-500 rounded-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Courses (SMAW/HEO/Forklift) -->
+    <section
+        class="max-w-6xl mx-auto px-6 py-16 text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+        <!-- Left Side Texts -->
+        <div class="donation-left space-y-10">
+
+            <!-- Bulldozer Course -->
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-gray-900">HEO Bulldozer</h2>
+                <p>
+                    Endonela Institute of Technology Foundation, Inc. also offers a Heavy Equipment Operation
+                    (Bulldozer) NCII course, giving students practical training and the technical skills
+                    needed to operate bulldozers effectively and safely in construction and earth-moving projects.
+                </p>
+                <p class="text-lg text-gray-800">
+                    This achievement is not just about handling heavy machinery — it’s about discipline,
+                    safety, and responsibility in shaping and building real-world environments.
+                </p>
+            </div>
+
+
+
+        </div>
+
+        <!-- Right Side-->
+        <div class="relative flex items-center h-full">
+            <!-- Forklift -->
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-blue-900">HEO Forklift</h2>
+                <p>
+                    Endonela Institute of Technology Foundation, Inc. also offers a Heavy Equipment Operation
+                    (Forklift) NCII course, providing students with hands-on training and the technical skills
+                    needed to operate forklifts safely and efficiently in various workplace settings.
+                </p>
+                <p class="text-lg text-gray-800">
+                    This achievement is not just about learning how to drive a forklift — it’s about discipline,
+                    safety, and responsibility in real-world operations.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelector("#slides");
+        const totalSlides = slides.children.length;
+
+        function showSlide(index) {
+            currentSlide = (index + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto slideshow every 6s
+        setInterval(nextSlide, 6000);
+    </script>
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Left: Logo & About -->
+            <div class="footer-col">
+                <img src="images/logo.jpg" alt="Endonela Logo" class="footer-logo">
+                <h3>Endonela Institute of Technology Foundation, Inc.</h3>
+                <p class="footer-tagline">"Start Here, Stay Here, Succeed Here"</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/eitfiendonela.davao?_rdc=1&_rdr#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Middle: Useful Links -->
+            <div class="footer-col">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">News & Info</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Right: Opening Hours -->
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="hours">
+                    <li><span>Monday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Tuesday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Wednesday - Thursday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Friday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Saturday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Sunday</span><span>Closed</span></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

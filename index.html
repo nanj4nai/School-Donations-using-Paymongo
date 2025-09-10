@@ -2,75 +2,152 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>School Donation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
+    <title>Endonela</title>
 
-        /* Modal background */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-    </style>
 </head>
 
-<body class="bg-gray-100">
+<body>
 
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center px-8 py-4 bg-white shadow sticky top-0 z-50">
-        <div class="logo font-bold text-lg">SchoolName</div>
-        <div class="links space-x-6">
-            <a href="#" class="hover:text-blue-600">Home</a>
-            <a href="#about" class="hover:text-blue-600">About</a>
-            <a href="#" class="hover:text-blue-600">Programs</a>
-            <a href="#" class="hover:text-blue-600">Contact</a>
+    <div class="top-bar">
+        <div class="logo-section">
+            <img src="images/logo.jpg" alt="Endonela Logo">
+            <img src="images/tesda.jpg" alt="Tesda Logo">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b30eb273-ebe8-4be2-b92b-49190b5b6835.png"
+                alt="ISO Certificate" />
+
+        </div>
+
+        <div class="contact-links">
+            <div class="contact-group">
+                <span class="contact-label">Call Us</span>
+                <span class="contact-detail">+63 906 667 7680</span>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">Message Us</span>
+                <a href="#" class="contact-detail">Submit Inquiries</a>
+            </div>
+            <div class="contact-group">
+                <span class="contact-label">Global Certificate</span>
+                <span class="contact-detail">ISO 9001:2015</span>
+            </div>
+            <button class="btn-enroll">Portal</button>
+        </div>
+    </div>
+    <nav>
+        <div class="nav-container">
+            <!-- Hamburger Button -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Menu -->
+            <ul id="menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="courses.html">Courses</a></li>
+
+                <li>Projects
+                    <ul>
+                        <li><a href="#">Admission Requirements</a></li>
+                        <li><a href="#">Registration Guidelines</a></li>
+                    </ul>
+                </li>
+                <li>News & Info
+                    <ul>
+                        <li><a href="#">Latest News</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </li>
+                <li>Services
+                    <ul>
+                        <li><a href="#">Student Services</a></li>
+                        <li><a href="#">Faculty Services</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="text-white text-center py-28 px-6 bg-cover bg-center"
-        style="background-image: url('https://images.unsplash.com/photo-1601597111158-58f6cdb1335e'); background-color: rgba(0,0,0,0.55); background-blend-mode: multiply;">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Ignite Change. Invest in Education!</h1>
-        <p class="max-w-2xl mx-auto text-lg mb-6">Your donation helps provide resources, opportunities, and hope for
-            students. Together we can build a brighter future.</p>
-        <button id="donateBtn"
-            class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-medium text-lg shadow">
-            <i class="fas fa-hand-holding-heart"></i> Donate Now
-        </button>
-    </header>
+    <!-- Slideshow Section -->
+    <section class="slideshow">
+        <div class="slide active">
+            <img src="images/slideshow-1.jpg" alt="Slide 1">
+            <div class="overlay">
+                <h2>Endonela Insititute of Technology Foundation Inc.</h2>
+                <h1>QUALITY<br>AFFORDABLE<br>OPEN EDUCATION</h1>
+                <div class="buttons">
+                    <a href="#" class="btn-yellow">ADMISSION REQUIREMENTS</a>
+                    <a href="#" class="btn-outline">REGISTRATION GUIDELINES</a>
+                </div>
+            </div>
+        </div>
 
-    <!-- About -->
-    <section id="about" class="py-16 px-8 text-center">
-        <h2 class="text-3xl font-bold mb-6">About Our School</h2>
-        <p class="max-w-2xl mx-auto text-gray-600 leading-relaxed">
-            Our mission is to empower students through quality education, building a foundation of knowledge,
-            confidence, and opportunity.
-            With your support, we continue to provide scholarships, resources, and community-driven programs that uplift
-            lives.
-        </p>
+        <div class="slide">
+            <img src="images/slideshow-2.jpg" alt="Slide 2">
+            <!-- No overlay text -->
+        </div>
+
+        <div class="slide">
+            <img src="images/slideshow-3.jpg" alt="Slide 3">
+            <div class="overlay">
+                <h2>SHAPING FUTURE LEADERS</h2>
+                <h1>INNOVATION<br>AND EXCELLENCE</h1>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="images/slideshow-4.jpg" alt="Slide 4">
+            <!-- No overlay text -->
+        </div>
+
+        <div class="slide">
+            <img src="images/slideshow-5.jpg" alt="Slide 5">
+            <div class="overlay">
+                <h2>JOIN OUR COMMUNITY</h2>
+                <h1>EMPOWERING STUDENTS<br>ACROSS THE NATION</h1>
+            </div>
+        </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 text-center py-6">
-        <p>© 2025 SchoolName. All rights reserved.</p>
-    </footer>
+    <section class="donation-section reveal">
+        <div class="donation-left">
+            <h2>Empower Young Adults from IP Communities</h2>
+            <p>Endonela Institute of Technology Foundation, Inc. provides financial assistance to young
+                adults from Indigenous Peoples communities who lack the resources to pursue education
+                or skills training. Your contribution will help them access programs that prepare
+                them for work and empower them to build a better future.</p>
+            <p>We also welcome general donations, which will go directly to supporting all initiatives
+                of Endonela Institute of Technology Foundation, Inc. aimed at uplifting young adults
+                from underserved communities across the country. Every contribution makes a meaningful
+                impact in helping these individuals achieve their goals.</p>
+        </div>
+        <div class="donation-right">
+            <img src="images/project-1.jpg" alt="Donation Project Image">
+        </div>
+    </section>
+
+    <section class="projects reveal">
+        <h2>Browse Our Projects</h2>
+        <div class="project-grid">
+            <!-- JS will dynamically insert project cards here -->
+        </div>
+    </section>
+
+
 
     <!-- Donation Modal -->
     <div id="donationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div
+        <div style="margin-top: 70px;"
             class="bg-white shadow-lg rounded-2xl flex flex-col md:flex-row max-w-5xl w-full mx-4 overflow-hidden relative animate-fadeIn">
 
             <!-- Close button -->
@@ -79,113 +156,165 @@
 
             <!-- Left side (campaign info) -->
             <div class="md:w-1/2 flex flex-col bg-gray-50">
-                <img src="https://tesda.gov.ph/Uploads/Image/News/2022/43/1.jpg" alt="School Campaign"
+                <img id="modalProjectImage" src="images/placeholder.jpg" alt="Project Image"
                     class="w-full h-64 md:h-full object-cover">
 
                 <div class="p-8 flex-1 flex flex-col justify-center">
-                    <h1 class="text-2xl font-bold mb-4">Ignite Change. Invest in Education!</h1>
-                    <p class="text-gray-700 mb-4">
-                        Our school is building a brighter future for children through education.
-                        Your donation directly supports our mission to provide quality learning opportunities.
-                    </p>
-                    <p class="text-gray-700">
-                        Together, we can empower students, uplift communities, and inspire lasting change.
+                    <h1 id="modalProjectName" class="text-2xl font-bold mb-4">Project Name</h1>
+                    <p id="modalProjectDescription" class="text-gray-700 mb-4">
+                        Project description goes here.
                     </p>
                 </div>
             </div>
 
-            <!-- Right side (donation form) -->
+            <!-- Right side (working donation form) -->
             <div class="md:w-1/2 flex flex-col p-8 justify-between border-l">
                 <div class="flex-1 flex flex-col justify-center">
                     <h2 class="text-xl font-semibold mb-6 flex items-center gap-2 text-gray-700 justify-center">
                         <i class="fas fa-lock text-green-600"></i> Secure Donation
                     </h2>
 
-                    <form method="POST" action="create_checkout.php" id="donation-form" class="flex flex-col gap-4">
-                        <!-- Preset Amounts -->
-                        <div class="flex flex-col gap-3">
-                            <label
-                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
-                                <input type="radio" name="amount_choice" value="100" class="hidden peer" checked>
-                                <span class="font-bold peer-checked:text-blue-600">₱100</span>
-                                <span class="text-sm text-gray-500">Support supplies</span>
-                            </label>
+                    <form id="donationForm" class="space-y-5">
+                        <!-- Donation Amount -->
+                        <input type="hidden" id="project_id" name="project_id">
 
-                            <label
-                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
-                                <input type="radio" name="amount_choice" value="500" class="hidden peer">
-                                <span class="font-bold peer-checked:text-blue-600">₱500</span>
-                                <span class="text-sm text-gray-500">Sponsor a student</span>
-                            </label>
+                        <div>
+                            <label for="amount" class="block font-semibold text-gray-700 mb-2">Donation Amount
+                                (PHP)</label>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
+                                <button type="button"
+                                    class="amount-btn py-2 rounded-lg border border-gray-300 font-semibold hover:bg-indigo-500 hover:text-white transition"
+                                    data-amount="500">₱500</button>
+                                <button type="button"
+                                    class="amount-btn py-2 rounded-lg border border-gray-300 font-semibold hover:bg-indigo-500 hover:text-white transition"
+                                    data-amount="1000">₱1,000</button>
+                                <button type="button"
+                                    class="amount-btn py-2 rounded-lg border border-gray-300 font-semibold hover:bg-indigo-500 hover:text-white transition"
+                                    data-amount="2500">₱2,500</button>
+                                <button type="button"
+                                    class="amount-btn py-2 rounded-lg border border-gray-300 font-semibold hover:bg-indigo-500 hover:text-white transition"
+                                    data-amount="5000">₱5,000</button>
+                                <button type="button"
+                                    class="amount-btn py-2 rounded-lg border border-gray-300 font-semibold hover:bg-indigo-500 hover:text-white transition"
+                                    data-amount="10000">₱10,000</button>
+                                <button type="button"
+                                    class="amount-btn py-2 rounded-lg border border-gray-300 font-semibold hover:bg-indigo-500 hover:text-white transition"
+                                    data-amount="custom">Custom</button>
+                            </div>
+                            <input type="number" id="amount" name="amount" min="1" max="1000000" step="0.01"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-colors">
+                            <p id="amountError" class="text-red-600 text-sm mt-1 hidden">Amount must be at least ₱1.</p>
+                        </div>
 
-                            <label
-                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
-                                <input type="radio" name="amount_choice" value="1000" class="hidden peer">
-                                <span class="font-bold peer-checked:text-blue-600">₱1000</span>
-                                <span class="text-sm text-gray-500">Fund activities</span>
-                            </label>
+                        <!-- Anonymous Checkbox -->
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="anonymous" name="donor_is_anonymous"
+                                class="w-5 h-5 accent-indigo-500">
+                            <label for="anonymous" class="text-gray-700 font-medium">I prefer to remain
+                                anonymous</label>
+                        </div>
 
-                            <label
-                                class="border rounded-lg px-4 py-3 flex justify-between items-center cursor-pointer hover:border-blue-500 peer-checked:border-blue-500">
-                                <input type="radio" name="amount_choice" value="5000" class="hidden peer">
-                                <span class="font-bold peer-checked:text-blue-600">₱5000</span>
-                                <span class="text-sm text-gray-500">Major support</span>
-                            </label>
-
-                            <!-- Other amount -->
+                        <!-- Donor Info -->
+                        <div id="donorFields" class="space-y-4">
                             <div>
-                                <input type="number" name="other_amount" placeholder="Other amount (₱)" min="50"
-                                    class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500">
+                                <label for="donor_name" class="block font-semibold text-gray-700">Full Name *</label>
+                                <input type="text" id="donor_name" name="donor_name" maxlength="255" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400">
+                            </div>
+                            <div>
+                                <label for="donor_email" class="block font-semibold text-gray-700">Email</label>
+                                <input type="email" id="donor_email" name="donor_email"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400">
+                            </div>
+                            <div>
+                                <label for="donor_phone" class="block font-semibold text-gray-700">Phone</label>
+                                <input type="text" id="donor_phone" name="donor_phone"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400">
                             </div>
                         </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="submitBtn"
+                            class="w-full bg-gradient-to-r from-[#2193b0] to-[#6dd5ed] text-white py-3 rounded-lg font-medium text-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                            Proceed to Payment
+                        </button>
+
+                        <!-- Status Message -->
+                        <div id="statusMessage" class="text-center mt-3 text-gray-700 font-semibold"></div>
                     </form>
                 </div>
 
-                <!-- Bottom Section -->
-                <div class="mt-6">
-                    <button type="submit" form="donation-form"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium text-lg shadow">
-                        Donate Now
-                    </button>
-                    <p class="text-sm text-gray-500 text-center mt-3">
-                        <i class="fas fa-shield-alt"></i> Redirects to Secure Checkout
-                    </p>
+                <!-- Security Note -->
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 text-sm text-gray-600 rounded-lg mt-6">
+                    <strong><i class="fa-solid fa-lock"></i>Secure Payment:</strong> Your payment is processed securely
+                    through PayMongo. We use industry-standard encryption and do not store your payment information.
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Tailwind animation -->
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .animate-fadeIn {
-            animation: fadeIn 0.2s ease-out;
-        }
-    </style>
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="fixed inset-0 bg-black/40 hidden flex items-center justify-center overflow-auto z-50">
+        <div id="modalContent"
+            class="bg-white rounded-xl p-6 max-w-md w-full text-center space-y-4 transform scale-90 opacity-0 transition-all duration-300">
+            <h2 class="text-2xl font-bold text-gray-800">Confirm Donation</h2>
+            <p id="modalMessage" class="text-gray-700"></p>
+            <div class="flex justify-center gap-4 mt-4">
+                <button id="modalCancel"
+                    class="px-6 py-2 rounded-lg border border-gray-300 hover:bg-gray-100">Cancel</button>
+                <button id="modalConfirm"
+                    class="px-6 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700">Confirm</button>
+            </div>
+        </div>
+    </div>
 
 
-    <script>
-        const modal = document.getElementById("donationModal");
-        const donateBtn = document.getElementById("donateBtn");
-        const closeModal = document.getElementById("closeModal");
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Left: Logo & About -->
+            <div class="footer-col">
+                <img src="images/logo.jpg" alt="Endonela Logo" class="footer-logo">
+                <h3>Endonela Institute of Technology Foundation, Inc.</h3>
+                <p class="footer-tagline">"Start Here, Stay Here, Succeed Here"</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/eitfiendonela.davao?_rdc=1&_rdr#"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
 
-        donateBtn.onclick = () => { modal.classList.remove("hidden"); };
-        closeModal.onclick = () => { modal.classList.add("hidden"); };
-        window.onclick = (e) => { if (e.target == modal) modal.classList.add("hidden"); };
+            <!-- Middle: Useful Links -->
+            <div class="footer-col">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">News & Info</a></li>
+                    <li><a href="#">Services</a></li>
+                </ul>
+            </div>
 
-    </script>
+            <!-- Right: Opening Hours -->
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <ul class="hours">
+                    <li><span>Monday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Tuesday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Wednesday - Thursday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Friday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Saturday</span><span>8:00 - 17:00</span></li>
+                    <li><span>Sunday</span><span>Closed</span></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- After your other scripts -->
+    <script src="js/projects.js"></script>
+
 </body>
 
 </html>

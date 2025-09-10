@@ -1,31 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Donation Success</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
 </head>
 
-<body class="bg-green-100 flex items-center justify-center min-h-screen px-4">
-    <div class="bg-white p-10 rounded-2xl shadow-xl text-center max-w-md w-full">
-        <div class="text-green-600 text-5xl mb-4">
-            <i class="fas fa-check-circle"></i>
+<body class="bg-green-50 min-h-screen flex items-center justify-center p-6">
+    <main class="max-w-xl w-full bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 sm:p-12 text-center">
+        <svg class="mx-auto h-20 w-20 text-green-600" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" class="opacity-20" />
+            <path d="M7 13l3 3 7-8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+
+        <h1 class="mt-6 text-3xl font-extrabold text-green-800">Thank you for your donation!</h1>
+        <p id="donation-message" class="mt-3 text-sm text-green-700/90">
+            Loading your donation details...
+        </p>
+
+        <div class="mt-8" id="donation-details" style="display:none;">
+            <p class="text-lg font-semibold text-green-900">Amount: <span id="donation-amount"></span></p>
+            <p class="text-green-800/80">Status: <span id="donation-status"></span></p>
+            <p class="text-green-800/80">Donor: <span id="donor-name"></span></p>
+            <a id="receipt-link" href="#" target="_blank"
+                class="mt-4 inline-block px-6 py-2 rounded-lg bg-green-600 text-white font-medium shadow hover:bg-green-700">View
+                Receipt</a>
         </div>
-        <h1 class="text-2xl font-bold text-green-700">Thank You!</h1>
-        <p class="mt-3 text-gray-600">Your donation has been received successfully.</p>
+
+        <!-- Back Button -->
+         <br><br>
         <a href="index.html"
-            class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg shadow font-medium">
-            Back to Home
-        </a>
-    </div>
+            class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-blue-200 text-black-700 bg-white/60 hover:bg-white focus:outline-none">Back
+            to Home</a>
+        <p class="mt-6 text-xs text-green-800/60">Need help? <a href="#" class="underline">Contact support</a></p>
+    </main>
+
+    <script>
+        async function loadDonation() {
+            const params = new URLSearchParams(window.location.search);
+            const externalId = params.get("external_id");
+            const msgEl = document.getElementById("donation-message");
+            const detailsEl = document.getElementById("donation-details");
+
+            if (!externalId) {
+                msgEl.textContent = "No donation ID provided.";
+                return;
+            }
+
+            let attempts = 0;
+            const maxAttempts = 5;
+            const delay = 2000; // 2 seconds
+
+            async function fetchDonation() {
+                try {
+                    const res = await fetch(`php/donation_status.php?external_id=${externalId}`);
+                    const data = await res.json();
+
+                    if (data.donation) {
+                        msgEl.style.display = "none";
+                        detailsEl.style.display = "block";
+
+                        document.getElementById("donation-amount").textContent = data.donation.amount + " " + data.donation.currency;
+                        document.getElementById("donation-status").textContent = data.donation.status;
+                        document.getElementById("donor-name").textContent = data.donation.donor_name ?? "Anonymous";
+
+                        if (data.donation.receipt_url) {
+                            document.getElementById("receipt-link").href = data.donation.receipt_url;
+                            document.getElementById("receipt-link").style.display = "inline-block";
+                        } else {
+                            document.getElementById("receipt-link").style.display = "none";
+                        }
+                    } else {
+                        throw new Error("Donation not found");
+                    }
+                } catch (err) {
+                    attempts++;
+                    if (attempts < maxAttempts) {
+                        msgEl.textContent = "Donation not found yet. Retrying...";
+                        setTimeout(fetchDonation, delay);
+                    } else {
+                        msgEl.textContent = "Donation not found. Please contact support.";
+                        console.error(err);
+                    }
+                }
+            }
+
+            fetchDonation();
+        }
+
+        loadDonation();
+    </script>
+
 </body>
 
 </html>

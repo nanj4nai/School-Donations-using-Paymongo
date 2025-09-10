@@ -1,31 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Donation Failed</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Failed — Action Unsuccessful</title>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-red-50 min-h-screen flex items-center justify-center p-6">
+<main class="max-w-xl w-full bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 sm:p-12 text-center">
+<svg class="mx-auto h-20 w-20 text-red-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" class="opacity-20" />
+<path d="M9.5 9.5l5 5M14.5 9.5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
 
-<body class="bg-red-100 flex items-center justify-center min-h-screen px-4">
-    <div class="bg-white p-10 rounded-2xl shadow-xl text-center max-w-md w-full">
-        <div class="text-red-600 text-5xl mb-4">
-            <i class="fas fa-times-circle"></i>
-        </div>
-        <h1 class="text-2xl font-bold text-red-700">Payment Failed</h1>
-        <p class="mt-3 text-gray-600">Something went wrong. Please try again.</p>
-        <a href="index.html"
-            class="mt-6 inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg shadow font-medium">
-            Back to Home
-        </a>
-    </div>
+<h1 class="mt-6 text-3xl font-extrabold text-red-800">Something went wrong</h1>
+
+<p id="failedMessage" class="mt-3 text-sm text-red-700/90">We couldn't complete your request. Try again, or contact support if the problem persists.</p>
+
+<p id="externalIdDisplay" class="mt-2 text-xs text-red-700/80"></p>
+<p id="donorInfoDisplay" class="mt-1 text-xs text-red-700/80"></p>
+<p id="amountDisplay" class="mt-1 text-xs text-red-700/80"></p>
+
+<div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+<button onclick="location.reload()" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-red-600 text-white font-medium shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">Try again</button>
+<a href="index.html" class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-red-200 text-red-700 bg-white/60 hover:bg-white focus:outline-none">Back to Home</a>
+</div>
+
+<p class="mt-6 text-xs text-red-800/60">If this keeps happening, <a href="#" class="underline">report an issue</a> and include any error messages.</p>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const externalId = params.get('external_id');
+  const donorName = params.get('donor_name') || "Anonymous";
+  const amount = params.get('amount') || null;
+  const currency = params.get('currency') || "PHP";
+  const msg = params.get('message');
+
+  if (externalId) document.getElementById('externalIdDisplay').textContent = "Donation ID: " + externalId;
+  if (msg) document.getElementById('failedMessage').textContent = msg;
+  if (donorName) document.getElementById('donorInfoDisplay').textContent = "Donor: " + donorName;
+  if (amount) document.getElementById('amountDisplay').textContent = "Amount: " + amount + " " + currency;
+</script>
 </body>
-
 </html>
